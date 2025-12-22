@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Hangout | Hub</title>
+    <style>
+        /* Base Styling */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #0d0d12;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        /* Animated Gradient Background */
+        .header-section {
+            width: 100%;
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(-45deg, #6222cc, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            text-shadow: 0px 0px 25px rgba(255,255,255,0.4);
+        }
+
+        .container {
+            max-width: 900px;
+            width: 90%;
+            margin-top: -40px;
+        }
+
+        /* Button Container */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px 0;
+            flex-wrap: wrap; /* Makes it look good on mobile */
+        }
+
+        /* Roblox Game Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+            min-width: 220px;
+        }
+
+        .btn-game {
+            background: #f68802;
+            color: white;
+            box-shadow: 0 10px 25px rgba(246, 136, 2, 0.3);
+        }
+
+        /* Roblox Group Button */
+        .btn-group {
+            background: #ffffff;
+            color: #111;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        /* Card Styling */
+        .section-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #23d5ab;
+            margin-bottom: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .card {
+            background: #16161d;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #2a2a30;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+        }
+
+        .card h2 { margin: 0 0 15px 0; font-size: 1.8rem; }
+
+        /* Like Button Styling */
+        .interaction-bar {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #2a2a30;
+        }
+
+        .heart-btn {
+            background: #222;
+            border: 1px solid #333;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 8px 18px;
+            border-radius: 30px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .heart-btn.liked {
+            color: #ff4757;
+            border-color: #ff4757;
+            background: rgba(255, 71, 87, 0.15);
+            box-shadow: 0 0 15px rgba(255, 71, 87, 0.3);
+        }
+
+        /* Credits Grid */
+        .credits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .credit-item {
+            background: #1f1f26;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .credit-name { display: block; font-weight: bold; color: #fff; }
+        .credit-role { font-size: 0.8rem; color: #23a6d5; text-transform: uppercase; }
+
+    </style>
+</head>
+<body>
+
+    <header class="header-section">
+        <h1>NEXUS HANGOUT</h1>
+        <p>Official Hub & News Feed</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="action-buttons">
+            <a href="YOUR_GAME_LINK" class="btn btn-game" target="_blank">🎮 Play Game</a>
+            <a href="YOUR_GROUP_LINK" class="btn btn-group" target="_blank">👥 Join Group</a>
+        </div>
+
+        <span class="section-label">Latest Info</span>
+        <div class="card" style="border-left: 5px solid #6222cc;">
+            <h2>📢 Announcement</h2>
+            <p>Welcome to Nexus! Make sure to join our Roblox group (linked above) to receive special in-game rewards like the 'Member' tag!</p>
+            <div class="interaction-bar">
+                <button class="heart-btn" onclick="toggleLike(this)">
+                    ❤ <span class="count">64</span>
+                </button>
+            </div>
+        </div>
+
+        <span class="section-label">Community Events</span>
+        <div class="card" style="border-left: 5px solid #e73c7e;">
+            <h2>📅 Event: Saturday Social</h2>
+            <p>Meet the developers and hang out this Saturday! We'll be doing a massive group photo at the center fountain.</p>
+            <div class="interaction-bar">
+                <button class="heart-btn" onclick="toggleLike(this)">
+                    ❤ <span class="count">112</span>
+                </button>
+            </div>
+        </div>
+
+        <span class="section-label">Version Notes</span>
+        <div class="card" style="border-left: 5px solid #23a6d5;">
+            <h2>🛠️ Update v1.2</h2>
+            <p>• Added Group Member rewards.<br>• New UI animations.<br>• Performance optimizations for mobile users.</p>
+            <div class="interaction-bar">
+                <button class="heart-btn" onclick="toggleLike(this)">
+                    ❤ <span class="count">245</span>
+                </button>
+            </div>
+        </div>
+
+  <span class="section-label">Created By</span>
+        <div class="card">
+            <div class="credits-grid">
+                <div class="credit-item">
+                    <span class="credit-name">OwnerName</span>
+                    <span class="credit-role">Founder</span>
+                </div>
+                <div class="credit-item">
+                    <span class="credit-name">DeveloperName</span>
+                    <span class="credit-role">Scripting</span>
+                </div>
+
+                <div class="credit-item">
+                    <span class="credit-name">BuilderName</span>
+                    <span class="credit-role">Map Design</span>
+                </div>
+
+                <div class="credit-item">
+                    <span class="credit-name">ArtistName</span>
+                    <span class="credit-role">UI & GFX</span>
+                </div>
+
+                <div class="credit-item">
+                    <span class="credit-name">ModName</span>
+                    <span class="credit-role">Moderator</span>
+                </div>
+
+                <div class="credit-item">
+                    <span class="credit-name">Contributor</span>
+                    <span class="credit-role">Testing</span>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        function toggleLike(btn) {
+            const countElement = btn.querySelector('.count');
+            let currentCount = parseInt(countElement.innerText);
+            if (btn.classList.contains('liked')) {
+                btn.classList.remove('liked');
+                countElement.innerText = currentCount - 1;
+            } else {
+                btn.classList.add('liked');
+                countElement.innerText = currentCount + 1;
+            }
+        }
+    </script>
+
+</body>
+</html>
